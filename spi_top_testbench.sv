@@ -45,15 +45,14 @@ module top_tb;
   //DUT instance
   //---------------------------------------
   top_dut dut(intf.mclk, intf.reset,intf.load_master,intf.load_slave,intf.read_master,
-  intf.read_slave,intf.start,intf.data_in_master,intf.data_in_slave,
-  
+              intf.read_slave,intf.start,intf.data_in_master,intf.data_in_slave,  
               intf.data_out_master,intf.data_out_slave);
   
-   initial begin 
+  initial begin 
      uvm_config_db#(virtual spi_interface)::set(uvm_root::get(),"*","vif",intf);
-    //enable wave dump
-    $dumpfile("dump.vcd"); 
-    $dumpvars;
+     //enable wave dump
+     $dumpfile("dump.vcd"); 
+     $dumpvars;
   end
   
   //---------------------------------------
